@@ -17,3 +17,4 @@
 /phpunit.xml
 /build
 /.phpunit.*
+.DS_Store
