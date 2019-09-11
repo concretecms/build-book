@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<concrete5-cif version="1.0">
+    <attributekeys>
+        <attributekey handle="project_type" name="Project Type" package="dreamrs" searchable="1" indexed="0"
+                      type="select" category="collection">
+            <type allow-multiple-values="0" display-order="display_asc" allow-other-values="0">
+                <options>
+                    <option value="Exclusive Project" is-end-user-added="0"/>
+                    <option value="Featured Project" is-end-user-added="0"/>
+                    <option value="New Project" is-end-user-added="0"/>
+                    <option value="Fancy Project" is-end-user-added="0"/>
+                </options>
+            </type>
+        </attributekey>
+    </attributekeys>
+    <attributesets>
+        <attributeset handle="dreamrs" name="Dreamrs" package="dreamrs" category="collection">
+            <attributekey handle="project_type"/>
+        </attributeset>
+    </attributesets>
+</concrete5-cif>

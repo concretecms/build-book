@@ -340,7 +340,7 @@ div.ccm-page .z_index {
 
 .breadcrumb:after,
 .banner_part:after {
-  background: -ms-linear-gradient(5deg, #f73347 0%, rgba(18, 1, 248, 0.2) 100%);
+  background-image: -webkit-linear-gradient(5deg, #f73347 0%, rgba(18, 1, 248, 0.2) 100%);
 }
 
 /**************** extend css start ****************/

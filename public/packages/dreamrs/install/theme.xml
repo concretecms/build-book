@@ -3,4 +3,7 @@
     <themes>
         <theme handle="theme_dreamrs" package="dreamrs" activated="1" />
     </themes>
+    <pagetemplates>
+        <pagetemplate handle="content" name="Content" icon="right_sidebar.png" package="dreamrs" />
+    </pagetemplates>
 </concrete5-cif>

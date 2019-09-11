@@ -10,7 +10,7 @@ class Controller extends Package
 {
     protected $pkgHandle = 'dreamrs';
     protected $appVersionRequired = '8.5.1';
-    protected $pkgVersion = '0.6';
+    protected $pkgVersion = '0.6.3';
 
     public function getPackageDescription()
     {
@@ -25,12 +25,18 @@ class Controller extends Package
     public function install()
     {
         parent::install();
+        $this->app->make('cache/request')->disable();
+        $this->installContentFile('install/attributes.xml');
         $this->installContentFile('install/theme.xml');
+        $this->installContentFile('install/block_types.xml');
     }
     
     public function upgrade()
     {
         parent::upgrade();
+        $this->app->make('cache/request')->disable();
+        $this->installContentFile('install/attributes.xml');
         $this->installContentFile('install/theme.xml');
+        $this->installContentFile('install/block_types.xml');
     }
 }
