@@ -10,7 +10,7 @@ class Controller extends Package
 {
     protected $pkgHandle = 'dreamrs';
     protected $appVersionRequired = '8.5.1';
-    protected $pkgVersion = '0.6.3';
+    protected $pkgVersion = '0.6.7';
 
     public function getPackageDescription()
     {
@@ -29,6 +29,8 @@ class Controller extends Package
         $this->installContentFile('install/attributes.xml');
         $this->installContentFile('install/theme.xml');
         $this->installContentFile('install/block_types.xml');
+        $this->installContentFile('install/page_types/project.xml');
+        $this->installContentFile('install/pages/projects.xml');
     }
     
     public function upgrade()

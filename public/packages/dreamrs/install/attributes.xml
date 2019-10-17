@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <concrete5-cif version="1.0">
     <attributekeys>
+        <attributekey handle="project_thumbnail" name="Project Thumbnail" package="dreamrs" searchable="1" indexed="0" type="image_file"
+                      category="collection"/>
         <attributekey handle="project_type" name="Project Type" package="dreamrs" searchable="1" indexed="0"
                       type="select" category="collection">
             <type allow-multiple-values="0" display-order="display_asc" allow-other-values="0">
@@ -12,10 +14,23 @@
                 </options>
             </type>
         </attributekey>
+        <attributekey handle="project_category" name="Project Category" package="dreamrs" searchable="1" indexed="0"
+                      type="select" category="collection">
+            <type allow-multiple-values="0" display-order="display_asc" allow-other-values="0">
+                <options>
+                    <option value="Architecture" is-end-user-added="0"/>
+                    <option value="Interior" is-end-user-added="0"/>
+                    <option value="Exterior" is-end-user-added="0"/>
+                    <option value="Drafting Landing" is-end-user-added="0"/>
+                </options>
+            </type>
+        </attributekey>
     </attributekeys>
     <attributesets>
         <attributeset handle="dreamrs" name="Dreamrs" package="dreamrs" category="collection">
+            <attributekey handle="project_thumbnail"/>
             <attributekey handle="project_type"/>
+            <attributekey handle="project_category"/>
         </attributeset>
     </attributesets>
 </concrete5-cif>

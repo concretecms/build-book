@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<concrete5-cif version="1.0">
+    <pagetypes>
+        <pagetype name="Project" handle="project" package="dreamrs" launch-in-composer="1" is-frequently-added="1">
+            <pagetemplates type="custom" default="content">
+                <pagetemplate handle="content"/>
+            </pagetemplates>
+            <target handle="parent_page" package="" path="/projects"/>
+            <composer>
+                <formlayout>
+                    <set name="Project" description="">
+                        <control custom-template="" required="1" custom-label="" description=""
+                                 type="core_page_property" handle="name"/>
+                        <control custom-template="" custom-label="" description="" type="core_page_property"
+                                 handle="url_slug"/>
+                        <control custom-template="" custom-label="" description="" type="core_page_property"
+                                 handle="page_template"/>
+                        <control custom-template="" custom-label="" description="" type="collection_attribute"
+                                 handle="project_thumbnail"/>
+                        <control custom-template="" custom-label="" description="" type="collection_attribute"
+                                 handle="project_category"/>
+                        <control custom-template="" custom-label="" description="" type="collection_attribute"
+                                 handle="project_type"/>
+                        <control custom-template="" custom-label="" description="" output-control-id="5acc8918"
+                                 type="block" handle="image"/>
+                        <control custom-template="" custom-label="" description="" output-control-id="e2d53a40"
+                                 type="block" handle="content"/>
+                    </set>
+                </formlayout>
+                <output>
+                    <pagetemplate handle="content">
+                        <page name="" path="" public-date="2019-09-11 01:11:16" filename="" pagetype="project"
+                              template="content" user="admin" description="" package="" root="true">
+                            <area name="Page Header">
+                                <blocks>
+                                    <block type="page_header" name="" mc-block-id="d62fb293">
+                                        <data table="btDreamrsPageHeader">
+                                            <record>
+                                                <fID><![CDATA[0]]></fID>
+                                                <customPageHeaderTitle><![CDATA[Project]]></customPageHeaderTitle>
+                                                <overridePageName><![CDATA[1]]></overridePageName>
+                                            </record>
+                                        </data>
+                                    </block>
+                                </blocks>
+                            </area>
+                            <area name="Main">
+                                <blocks>
+                                    <block type="core_page_type_composer_control_output" name="" mc-block-id="58c51c54">
+                                        <control output-control-id="5acc8918"/>
+                                    </block>
+                                    <block type="page_title" name="" custom-template="project.php"
+                                           mc-block-id="543e6ee5">
+                                        <data table="btPageTitle">
+                                            <record>
+                                                <useCustomTitle><![CDATA[0]]></useCustomTitle>
+                                                <useFilterTitle><![CDATA[0]]></useFilterTitle>
+                                                <useFilterTopic><![CDATA[0]]></useFilterTopic>
+                                                <useFilterTag><![CDATA[0]]></useFilterTag>
+                                                <useFilterDate><![CDATA[0]]></useFilterDate>
+                                                <topicTextFormat><![CDATA[0]]></topicTextFormat>
+                                                <tagTextFormat><![CDATA[upperWord]]></tagTextFormat>
+                                                <dateTextFormat><![CDATA[0]]></dateTextFormat>
+                                                <filterDateFormat><![CDATA[F Y]]></filterDateFormat>
+                                                <titleText><![CDATA[[Page Title]]]></titleText>
+                                                <formatting><![CDATA[h1]]></formatting>
+                                            </record>
+                                        </data>
+                                    </block>
+                                    <block type="core_page_type_composer_control_output" name="" mc-block-id="9d23ed1a">
+                                        <control output-control-id="e2d53a40"/>
+                                    </block>
+                                </blocks>
+                            </area>
+                        </page>
+                    </pagetemplate>
+                </output>
+            </composer>
+        </pagetype>
+    </pagetypes>
+</concrete5-cif>

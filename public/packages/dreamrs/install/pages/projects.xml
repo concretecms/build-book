@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concrete5-cif version="1.0">
+    <pages>
+        <page name="Projects" path="/projects" public-date="2019-09-25 01:29:15" filename="" pagetype="page"
+              template="full" user="admin" description="" package="dreamrs">
+            <area name="Main">
+                <blocks>
+                    <block type="page_header" name="">
+                        <data table="btDreamrsPageHeader">
+                            <record>
+                                <fID><![CDATA[0]]></fID>
+                                <customPageHeaderTitle><![CDATA[]]></customPageHeaderTitle>
+                                <overridePageName><![CDATA[0]]></overridePageName>
+                            </record>
+                        </data>
+                    </block>
+                    <block type="project_grid" name="">
+                        <data table="btDreamrsProjectGrid">
+                            <record>
+                                <projectGridHeadline>
+                                    <![CDATA[Hello City We are the <br> leader in <span>Projects .</span>]]></projectGridHeadline>
+                            </record>
+                        </data>
+                    </block>
+                </blocks>
+            </area>
+        </page>
+    </pages>
+</concrete5-cif>
