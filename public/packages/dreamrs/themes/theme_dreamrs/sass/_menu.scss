@@ -63,6 +63,12 @@ html.ccm-toolbar-visible .main_menu {
                     }
                 }
             }
+            
+            li.active {
+                a {
+                    color: $btn_bg;
+                }
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
-<?php defined('C5_EXECUTE') or die('Access Denied.'); ?>
+<?php 
+use Concrete\Core\Page\PageList;
+defined('C5_EXECUTE') or die('Access Denied.'); ?>
 <!doctype html>
 <html lang="en">
 
@@ -35,28 +37,49 @@
         <div class="row">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="index.html"> <img src="<?=$view->getThemePath()?>/img/logo.png" alt="logo"> </a>
+                    <a class="navbar-brand" href="<?=URL::to('/')?>"> <img src="<?=$view->getThemePath()?>/img/logo.png" alt="logo"> </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse main-menu-item" id="navbarNav">
                         <ul class="navbar-nav">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="about.html">about</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="services.html">Services</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="projects.html">Projects</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Contact us</a>
-                            </li>
+                            <?php
+                            $c = Page::getCurrentPage();
+                            $currentPagePath = $c->getCollectionPath();
+
+                            $cache = Core::make('cache/expensive');
+                            $cacheItem = $cache->getItem('header_navigation_pages');
+                            if ($cacheItem->isMiss()) {
+                                $cacheItem->lock();
+                                $home = Page::getByID($c->getHomePageID());
+                                $list = new PageList();
+                                $list->filterByParentID($home->getCollectionID());
+                                $list->ignorePermissions();
+                                $list->sortByDisplayOrder();
+                                $results = $list->getResults();
+
+                                $cacheItem->set($results);
+                                $cacheItem->expiresAfter(7200);
+                                $cache->save($cacheItem);
+                                
+                            } else {
+
+                                $results = $cacheItem->get();
+                            }
+                            
+                            foreach($results as $page) { 
+                                $active = false;
+                                if (strpos($page->getCollectionPath(), $currentPagePath) === 0) {
+                                    $active = true;
+                                }
+                                ?>
+
+                                <li class="nav-item <?php if ($active) { ?>active<?php } ?>">
+                                    <a class="nav-link" href="<?=$page->getCollectionLink()?>"><?=$page->getCollectionName()?></a>
+                                </li>
+                                
+                            <?php } ?>
                         </ul>
                     </div>
                 </nav>
